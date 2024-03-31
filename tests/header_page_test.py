@@ -1,4 +1,5 @@
 import allure
+from total_info import Info
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -21,7 +22,7 @@ class TestHeaderPage:
         WebDriverWait(driver, 6).until(expected_conditions.url_contains('https://dzen.ru/'))
         url_new_page = driver.current_url
 
-        assert url_new_page == 'https://dzen.ru/?yredirect=true'
+        assert url_new_page == Info.dzen_page_url
 
     @allure.title('Тест проверки редиректа на главную страничку тапом на логотип самоката.')
     @allure.description('Проверяем что если нажать на логотип «Самоката», попадёшь на главную страницу «Самоката».')

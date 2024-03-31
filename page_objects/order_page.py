@@ -1,5 +1,4 @@
 import random
-
 import allure
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -68,10 +67,6 @@ class OrderPage(BasePage):
 
     @allure.step('Ждем появления окна подтверждения заказа')
     def check_congratulation_modal(self):
-        text = self.wait_element(PageOrderLocators.order_completed_modal)
-        return self.get_text_element(text)
+        locator = self.wait_element(PageOrderLocators.order_completed_modal)
+        return locator.text
 
-    personal_date = [
-                    ['Борислав', 'Грожеедов', 'Пролетарский переулок 3', 'Нагорная', '88005553535'],
-                     ['Ульфрик', 'Буревестник', 'Громовая гора, пик 4 ', 'Нагорная', '88002000600']
-                     ]
